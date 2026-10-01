@@ -276,21 +276,41 @@
 
 <main class="container">
 
-{% for key, val in cfg %}
-  {% if key == "header" or key == "contact" or key == "footer" %}
-  {% elif val is object %}
-<section id="{{ key | lower | replace(from=" ", to="-") }}">
+{% macro section(key, val) %}
+{% if val is object and val.host %}
+<section id="{{ key | lower | replace(from=" ", to="-") }}" aria-labelledby="h-{{ key | lower | replace(from=" ", to="-") }}">
   <hgroup>
-    <h2>{{ key | default(value="Section") | escape }}</h2>
+    <h2 id="h-{{ key | lower | replace(from=" ", to="-") }}">{{ key | default(value="Section") | escape }}</h2>
   </hgroup>
   <article>
-  {% if val.host %}
     <table>
     {% for k2, v2 in val %}
       <tr><th>{{ k2 | escape }}</th><td>{{ v2 | escape }}</td></tr>
     {% endfor %}
     </table>
-  {% else %}
+  </article>
+</section>
+{% elif val is object and (key == "Company" or key == "company") %}
+<section id="company" aria-labelledby="h-company">
+  <hgroup>
+    <h2 id="h-company">Company</h2>
+  </hgroup>
+  <article>
+    {% if val.name %}<h3>{{ val.name | escape }}</h3>{% endif %}
+    <address>
+      {% if val.address %}{% for line in val.address %}{{ line | escape }}<br>{% endfor %}{% endif %}
+      {% if val.tel %}Tel: {{ val.tel | escape }}<br>{% endif %}
+      {% if val.fax %}Fax: {{ val.fax | escape }}<br>{% endif %}
+      {% if val.email %}<a href="mailto:{{ val.email | escape }}">{{ val.email | escape }}</a>{% endif %}
+    </address>
+  </article>
+</section>
+{% elif val is object %}
+<section id="{{ key | lower | replace(from=" ", to="-") }}" aria-labelledby="h-{{ key | lower | replace(from=" ", to="-") }}">
+  <hgroup>
+    <h2 id="h-{{ key | lower | replace(from=" ", to="-") }}">{{ key | default(value="Section") | escape }}</h2>
+  </hgroup>
+  <article>
     {% if val.name %}<h3>{{ val.name | escape }}</h3>{% endif %}
     <p>
     {% if val.email %}Email: <a href="mailto:{{ val.email | escape }}">{{ val.email | escape }}</a><br>{% endif %}
@@ -299,26 +319,35 @@
     {% if val.tel %}Tel: {{ val.tel | escape }}{% endif %}
     {% if val.privacy %}</p><p><small>{{ val.privacy | escape }}</small>{% endif %}
     </p>
-  {% endif %}
   </article>
 </section>
-
-  {% else %}
-<section id="{{ key | lower | replace(from=" ", to="-") }}">
+{% else %}
+<section id="{{ key | lower | replace(from=" ", to="-") }}" aria-labelledby="h-{{ key | lower | replace(from=" ", to="-") }}">
   <hgroup>
-    <h2>{{ key | default(value="Services") | escape }}</h2>
+    <h2 id="h-{{ key | lower | replace(from=" ", to="-") }}">{{ key | default(value="Services") | escape }}</h2>
   </hgroup>
   <div class="service-grid">
   {% for item in val %}
-    <a href="{{ item.link | escape }}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>{% if item.image %}<img src="{{ item.image | escape }}" alt="{{ item.name | escape }}">{% elif item.icon %}{{ item.icon | safe }}{% endif %} {{ item.name | default(value="") | escape }}</h3>
+    <a class="service-card" href="{{ item.link | escape }}" target="_blank" rel="noopener">
+    <article>
+      <h3>{% if item.image %}<img src="{{ item.image | escape }}" alt="" aria-hidden="true">{% elif item.icon %}<span class="service-icon" aria-hidden="true">{{ item.icon | safe }}</span>{% endif %} <span class="service-name">{{ item.name | default(value="") | escape }}</span></h3>
       <p>{{ item.description | default(value="") | escape }}</p>
     </article>
     </a>
   {% endfor %}
   </div>
 </section>
+{% endif %}
+{% endmacro section %}
+
+{% for key, val in cfg %}
+  {% if key == "header" or key == "contact" or key == "footer" %}
+  {% elif key == "groups" %}
+{% for group in val %}
+{{ self::section(group.label | default(value="Services"), group.items) }}
+{% endfor %}
+  {% else %}
+{{ self::section(key, val) }}
   {% endif %}
 {% endfor %}
 

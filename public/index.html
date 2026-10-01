@@ -153,7 +153,13 @@
 
     html { scroll-behavior: auto; }
 
-    main.container { padding-top: 1rem; }
+    main.container { padding-top: 1rem; outline: none; }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      padding: .5rem 1rem; background: var(--pico-primary); color: var(--pico-primary-inverse);
+    }
+    .skip-link:focus { left: 0; }
 
     section { scroll-margin-top: 5rem; }
 
@@ -163,11 +169,17 @@
       gap: var(--pico-grid-gap, .75rem);
     }
 
-    .service-grid article { text-align: center; transition: box-shadow .2s, transform .2s; padding: .75rem; }
+    .service-card { text-decoration: none; color: inherit; display: block; }
+
+    .service-grid article { text-align: center; transition: box-shadow .2s, transform .2s; padding: .75rem; height: 100%; }
     .service-grid article:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.15); transform: translateY(-2px); }
     .service-grid article h3 { margin-bottom: .25rem; font-size: 0.95rem; }
     .service-grid article p { font-size: 0.825rem; margin-bottom: 0; }
     .service-grid article img { max-height: 2.5em; vertical-align: middle; margin-right: .25rem; }
+    .service-icon { vertical-align: middle; margin-right: .25rem; }
+    .service-name { vertical-align: middle; }
+
+    section > address { font-style: normal; }
 
     .contact-section { text-align: center; }
     .contact-section article { max-width: 600px; margin: 0 auto; }
@@ -282,379 +294,408 @@
   </div>
 </div>
 
-<main class="container">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<main class="container" id="main">
+
+
 
 
   
   
 
   
-<section id="websites">
+
+
+
+<section id="websites" aria-labelledby="h-websites">
   <hgroup>
-    <h2>Websites</h2>
+    <h2 id="h-websites">Websites</h2>
   </hgroup>
   <div class="service-grid">
   
-    <a href="https:&#x2F;&#x2F;gms.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; GMS</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;gms.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">GMS</span></h3>
       <p>Server management system</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;peta.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4ca; Peta</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;peta.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4ca;</span> <span class="service-name">Peta</span></h3>
       <p>Peta service</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;grid.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f30d; Grid</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;grid.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f30d;</span> <span class="service-name">Grid</span></h3>
       <p>Grid service</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;pm.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4cb; PM</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;pm.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4cb;</span> <span class="service-name">PM</span></h3>
       <p>Project management</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;apps.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4f1; Apps</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;apps.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4f1;</span> <span class="service-name">Apps</span></h3>
       <p>Applications portal</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;apps4.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4f1; Apps4</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;apps4.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4f1;</span> <span class="service-name">Apps4</span></h3>
       <p>Applications portal 4</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;converter.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f504; Converter</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;converter.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f504;</span> <span class="service-name">Converter</span></h3>
       <p>File converter</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;hub.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f310; Hub</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;hub.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f310;</span> <span class="service-name">Hub</span></h3>
       <p>Central hub</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;wipm.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f527; WIPM</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;wipm.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f527;</span> <span class="service-name">WIPM</span></h3>
       <p>WIP management</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;stocks.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4c8; Stocks</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;stocks.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4c8;</span> <span class="service-name">Stocks</span></h3>
       <p>Stock tracker</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;code.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4bb; Code</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;code.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4bb;</span> <span class="service-name">Code</span></h3>
       <p>Code repository</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;redmine.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4dd; Redmine</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;redmine.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4dd;</span> <span class="service-name">Redmine</span></h3>
       <p>Project management</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;it.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f6e1; IT</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;it.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f6e1;</span> <span class="service-name">IT</span></h3>
       <p>IT support portal</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;certificate.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f512; Certificate</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;certificate.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f512;</span> <span class="service-name">Certificate</span></h3>
       <p>Certificate management</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;calendar.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4c5; Calendar</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;calendar.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4c5;</span> <span class="service-name">Calendar</span></h3>
       <p>Calendar service</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;files.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4c1; Files</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;files.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4c1;</span> <span class="service-name">Files</span></h3>
       <p>File storage</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;rc.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f3e0; RC</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;rc.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f3e0;</span> <span class="service-name">RC</span></h3>
       <p>Report center</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;subdash.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4ca; Subdash</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;subdash.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4ca;</span> <span class="service-name">Subdash</span></h3>
       <p>Supplier dashboard</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;wiki.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4d6; Wiki</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;wiki.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4d6;</span> <span class="service-name">Wiki</span></h3>
       <p>Internal wiki</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;orders.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4ca; Orders</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;orders.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4ca;</span> <span class="service-name">Orders</span></h3>
       <p>Orders</p>
     </article>
     </a>
   
   </div>
 </section>
+
+
   
 
   
-<section id="servers">
+
+
+
+<section id="servers" aria-labelledby="h-servers">
   <hgroup>
-    <h2>Servers</h2>
+    <h2 id="h-servers">Servers</h2>
   </hgroup>
   <div class="service-grid">
   
-    <a href="https:&#x2F;&#x2F;web.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f310; Web</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;web.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f310;</span> <span class="service-name">Web</span></h3>
       <p>Web server</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;couchdb.salamander-jewelry.net&#x2F;_utils" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f5c3; CouchDB</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;couchdb.salamander-jewelry.net&#x2F;_utils" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f5c3;</span> <span class="service-name">CouchDB</span></h3>
       <p>CouchDB database</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;tibellus.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f6e1; Tibellus</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;tibellus.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f6e1;</span> <span class="service-name">Tibellus</span></h3>
       <p>Tibellus service</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;pg3.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f5c3; PG3</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;pg3.salamander-jewelry.net&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f5c3;</span> <span class="service-name">PG3</span></h3>
       <p>PostgreSQL instance</p>
     </article>
     </a>
   
   </div>
 </section>
+
+
   
 
   
-<section id="apis">
+
+
+
+<section id="apis" aria-labelledby="h-apis">
   <hgroup>
-    <h2>APIs</h2>
+    <h2 id="h-apis">APIs</h2>
   </hgroup>
   <div class="service-grid">
   
-    <a href="https:&#x2F;&#x2F;api3.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; API3</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;api3.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">API3</span></h3>
       <p>API endpoint v3</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;sapir.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Sapir</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;sapir.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Sapir</span></h3>
       <p>Sapir API</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;sapif.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Sapif</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;sapif.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Sapif</span></h3>
       <p>Sapif API</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;img.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f5bc; IMG</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;img.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f5bc;</span> <span class="service-name">IMG</span></h3>
       <p>Image service</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;wipma.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f527; WIPMA</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;wipma.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f527;</span> <span class="service-name">WIPMA</span></h3>
       <p>WIP management API</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;qb.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4ca; QB</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;qb.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4ca;</span> <span class="service-name">QB</span></h3>
       <p>QuickBooks integration</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;ai.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; AI</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;ai.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">AI</span></h3>
       <p>AI API</p>
     </article>
     </a>
   
   </div>
 </section>
+
+
   
 
   
-<section id="tamuz-online">
+
+
+
+<section id="tamuz-online" aria-labelledby="h-tamuz-online">
   <hgroup>
-    <h2>Tamuz Online</h2>
+    <h2 id="h-tamuz-online">Tamuz Online</h2>
   </hgroup>
   <div class="service-grid">
   
-    <a href="https:&#x2F;&#x2F;tamuz.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Tamuz</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;tamuz.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Tamuz</span></h3>
       <p>Tamuz production</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;tamuz2.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Tamuz 2</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;tamuz2.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Tamuz 2</span></h3>
       <p>Tamuz Day Replication</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;tamuz3.salamander-jewelry.net" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Tamuz 3</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;tamuz3.salamander-jewelry.net" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Tamuz 3</span></h3>
       <p>Tamuz Day Replication</p>
     </article>
     </a>
   
-    <a href="http:&#x2F;&#x2F;192.168.80.32:5801" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Megabom</h3>
+    <a class="service-card" href="http:&#x2F;&#x2F;192.168.80.32:5801" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Megabom</span></h3>
       <p>Megabom Autorobot</p>
     </article>
     </a>
   
-    <a href="http:&#x2F;&#x2F;192.168.80.32:5803&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Balance</h3>
+    <a class="service-card" href="http:&#x2F;&#x2F;192.168.80.32:5803&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Balance</span></h3>
       <p>Balance Autorobot</p>
     </article>
     </a>
   
-    <a href="http:&#x2F;&#x2F;192.168.80.32:5804&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Supplier</h3>
+    <a class="service-card" href="http:&#x2F;&#x2F;192.168.80.32:5804&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Supplier</span></h3>
       <p>Supplier Autorobot</p>
     </article>
     </a>
   
-    <a href="http:&#x2F;&#x2F;192.168.80.32:5805&#x2F;" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Customer</h3>
+    <a class="service-card" href="http:&#x2F;&#x2F;192.168.80.32:5805&#x2F;" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Customer</span></h3>
       <p>Customer Autorobot</p>
     </article>
     </a>
   
   </div>
 </section>
+
+
   
 
   
-<section id="internet-websites">
+
+
+
+<section id="internet-websites" aria-labelledby="h-internet-websites">
   <hgroup>
-    <h2>Internet Websites</h2>
+    <h2 id="h-internet-websites">Internet Websites</h2>
   </hgroup>
   <div class="service-grid">
   
-    <a href="https:&#x2F;&#x2F;shop.salamander-jewelry.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; Shop</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;shop.salamander-jewelry.com" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">Shop</span></h3>
       <p>Shop</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;body-piercing.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; BP</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;body-piercing.com" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">BP</span></h3>
       <p>Body-piercing</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;shininglight-piercing.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; SLBJ</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;shininglight-piercing.com" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">SLBJ</span></h3>
       <p>Slbj USA</p>
     </article>
     </a>
   
-    <a href="https:&#x2F;&#x2F;cb.neriene.com&#x2F;_utils&#x2F;#database&#x2F;userdb-73616c616d616e646572&#x2F;config" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-    <article style="cursor:pointer">
-      <h3>&#x1f4e1; CB Neriene</h3>
+    <a class="service-card" href="https:&#x2F;&#x2F;cb.neriene.com&#x2F;_utils&#x2F;#database&#x2F;userdb-73616c616d616e646572&#x2F;config" target="_blank" rel="noopener">
+    <article>
+      <h3><span class="service-icon" aria-hidden="true">&#x1f4e1;</span> <span class="service-name">CB Neriene</span></h3>
       <p>Salamander DB Config</p>
     </article>
     </a>
   
   </div>
 </section>
+
+
   
 
   
-<section id="company">
+
+
+<section id="company" aria-labelledby="h-company">
   <hgroup>
-    <h2>Company</h2>
+    <h2 id="h-company">Company</h2>
   </hgroup>
   <article>
-  
     <h3>Salamander Jewelry Co., Ltd.</h3>
-    <p>
-    Email: <a href="mailto:info@body-piercing.com">info@body-piercing.com</a><br>
-    
-    128&#x2F;1 Moo 7, Soi Wat Nakhon Chuenchum Phuttamonthon Sai 4 Rd.<br>Tambon Kratumlom, Ampur Sampran, Nakhon Pathom<br>73220, Thailand<br>
-    Tel: 66-2814-4455
-    
-    </p>
-  
+    <address>
+      128&#x2F;1 Moo 7, Soi Wat Nakhon Chuenchum Phuttamonthon Sai 4 Rd.<br>Tambon Kratumlom, Ampur Sampran, Nakhon Pathom<br>73220, Thailand<br>
+      Tel: 66-2814-4455<br>
+      Fax: 66-2-814-3300<br>
+      <a href="mailto:info@body-piercing.com">info@body-piercing.com</a>
+    </address>
   </article>
 </section>
+
 
   
 

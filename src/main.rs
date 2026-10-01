@@ -79,6 +79,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
                 if let Some(obj) = config.as_object_mut() {
                     obj.retain(|k, _| !k.starts_with('_'));
+                    obj.remove("type");
+                    obj.remove("template_version");
                 }
 
                 let path = PathBuf::from("config.json");
